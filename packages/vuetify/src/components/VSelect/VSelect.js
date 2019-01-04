@@ -693,8 +693,10 @@ export default VTextField.extend({
       this.selectedItems = selectedItems
     },
     setValue (value) {
-      this.internalValue = value
-      this.$emit('change', value)
+		if(this.internalValue !== value){
+			this.internalValue = value
+			this.$emit('change', value)
+		}
     }
   }
 })
